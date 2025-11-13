@@ -1,38 +1,3 @@
-# Django-RESTful-Blog
-DjangoBlog simple RESTful services using Django and DRF
-
-### Custom User Model 
-### Post Model 
-### Tests
-### Django REST Framework
-
-### Custom User Model (Account App) accounts/models.py and forms.py and admin.py
-```
-from django.contrib.auth.models import AbstractUser
-from django.db import models
-
-class CustomUser(AbstractUser):
-    name = models.CharField(null=True, blank=True, max_length=100)
-```
-
-```
-from django.contrib.auth.forms import UserCreationForm, UserChangeForm
-from .models import CustomUser
-
-
-class CustomUserCreation(UserCreationForm):
-    class Meta:
-        model = CustomUser
-        fields = ("email", "username", "name")
-
-
-class CustomUserchangeForm(UserChangeForm):
-    class Meta:
-        model = CustomUser
-        fields = ("email", "username", "name")
-```
-
-```
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
 from .forms import CustomUserCreation, CustomUserchangeForm
@@ -97,4 +62,3 @@ class CustomUserAdmin(UserAdmin):
 
 
 admin.site.register(CustomUser, CustomUserAdmin)
-```
